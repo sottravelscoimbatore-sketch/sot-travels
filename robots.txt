@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block unnecessary or sensitive paths (optional)
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.sottravels.com/sitemap.xml
