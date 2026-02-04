@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17814686959"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17814686959');
-</script>
   <!-- ================= BASIC ================= -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -77,6 +68,148 @@
     ]
   }
   </script>
+
+  <!-- ================= ENQUIRY FORM STYLES ================= -->
+  <style>
+    .enquiry-section {
+      background: #f4f6f8;
+      padding: 4rem 0;
+    }
+
+    .enquiry-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .enquiry-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .enquiry-form .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .enquiry-form .form-control {
+      border-radius: 10px !important;
+      border: 1px solid #ddd;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .enquiry-form .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    }
+
+    .add-stop-btn {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    .accommodation-section {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .accommodation-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+
+    .acc-btn {
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .acc-btn.active {
+      transform: scale(1.05);
+    }
+
+    .acc-selected {
+      font-weight: 600;
+      color: #0d6efd;
+      font-size: 0.95rem;
+    }
+
+    .submit-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 0.875rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .note-text {
+      font-size: 0.8rem;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .note-text strong {
+      color: #333;
+    }
+
+    .intermediate-stops {
+      margin: 0.75rem 0;
+    }
+
+    .stop-input-wrapper {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .remove-stop {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -171,331 +304,90 @@
 
 <!-- ================= MAIN START ================= -->
 <main class="main-content" id="top" style="opacity:0;">
-  <!-- ===================== BOOKING FORM ===================== -->
 
+  <!-- ===================== ENQUIRY FORM ===================== -->
+  <section class="enquiry-section" id="quote">
+    <div class="container">
+      <div class="enquiry-card">
+        <h2 class="enquiry-title">Tour Enquiry Form</h2>
 
-  <style>
-  body{background:#f4f6f8}
-  .card-box{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-  .step{display:none}
-  .step.active{display:block;animation:fade .35s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
-  input,button{border-radius:10px!important}
-  .datetime-box{cursor:pointer}
+        <form id="enquiryForm" class="enquiry-form">
 
-  .vehicle-item{
-    border:1px solid #e5e5e5;
-    border-radius:12px;
-    padding:12px 14px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    cursor:pointer;
-    transition:.2s
-  }
-  .vehicle-item:hover{border-color:#0d6efd}
-  .vehicle-item.active{border-color:#0d6efd;background:#f3f8ff}
-  .vehicle-left{display:flex;gap:10px;align-items:center}
-  .vehicle-icon{font-size:18px;color:#0d6efd}
-  .vehicle-name{font-weight:600;font-size:14px}
-  .vehicle-seat{font-size:12px;color:#666}
-  .vehicle-price{font-weight:700;color:#198754;font-size:15px}
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Name *</label>
+            <input type="text" id="custName" class="form-control" placeholder="Enter your full name" required>
+          </div>
 
-  .note{font-size:12.5px;color:#666;line-height:1.5}
-  </style>
-  </head>
+          <!-- Phone -->
+          <div class="mb-3">
+            <label class="form-label">Phone Number *</label>
+            <input
+              type="tel"
+              id="custPhone"
+              class="form-control"
+              placeholder="Enter 10-digit phone number"
+              inputmode="numeric"
+              maxlength="10"
+              required>
+          </div>
 
-  <body>
+          <!-- Pickup Location -->
+          <div class="mb-3">
+            <label class="form-label">Pickup Location *</label>
+            <input type="text" id="pickup" class="form-control" placeholder="Enter pickup location" required>
+          </div>
 
-  <section class="py-5">
-  <div class="container">
-  <div class="row justify-content-center">
-  <div class="col-lg-8">
+          <!-- Intermediate Stops -->
+          <div class="intermediate-stops" id="stopsContainer"></div>
 
-  <div class="card-box p-4">
-  <h5 class="fw-bold text-center mb-4">Tour Fare Calculator</h5>
+          <button type="button" class="btn btn-outline-secondary add-stop-btn mb-3" onclick="addStop()">
+            + Add Intermediate Stop
+          </button>
 
-  <!-- STEP 1 -->
-  <div class="step active" id="step1">
-  <h6 class="fw-bold mb-3">Trip Details</h6>
+          <!-- Drop Location -->
+          <div class="mb-3">
+            <label class="form-label">Drop Location *</label>
+            <input type="text" id="drop" class="form-control" placeholder="Enter drop location" required>
+          </div>
 
-  <input id="pickup" class="form-control mb-2" placeholder="Pickup Location">
-  <div id="stops"></div>
-  <input id="drop" class="form-control mb-3" placeholder="Drop Location">
+          <!-- Pickup Date & Time -->
+          <div class="mb-3">
+            <label class="form-label">Pickup Date & Time *</label>
+            <input type="datetime-local" id="pickupDT" class="form-control" required>
+          </div>
 
-  <button class="btn btn-sm btn-outline-secondary mb-3" onclick="addStop()">+ Add Stop</button>
+          <!-- Drop Date & Time -->
+          <div class="mb-3">
+            <label class="form-label">Drop Date & Time *</label>
+            <input type="datetime-local" id="dropDT" class="form-control" required>
+          </div>
 
-  <div class="row">
-  <div class="col-md-6 mb-2">
-  <label class="small">Pickup Date & Time</label>
-  <input type="datetime-local" id="pickupDT" class="form-control datetime-box">
-  </div>
-  <div class="col-md-6 mb-2">
-  <label class="small">Drop Date & Time</label>
-  <input type="datetime-local" id="dropDT" class="form-control datetime-box">
-  </div>
-  </div>
+          <!-- Accommodation -->
+          <div class="accommodation-section">
+            <div class="accommodation-label">Accommodation Required?</div>
+            <div class="d-flex gap-3 align-items-center">
+              <button type="button" class="btn btn-outline-secondary acc-btn" onclick="setAccommodation('No')" id="btnNo">
+                No
+              </button>
+              <button type="button" class="btn btn-outline-success acc-btn" onclick="setAccommodation('Yes')" id="btnYes">
+                Yes
+              </button>
+              <span class="acc-selected ms-2">Selected: <span id="accValue">No</span></span>
+            </div>
+          </div>
 
-  <div class="text-end mt-3">
-  <button class="btn btn-primary" onclick="validateStep1()">Next</button>
-  </div>
-  </div>
+      
 
-  <!-- STEP 2 -->
-  <div class="step" id="step2">
-  <h6 class="fw-bold mb-3">Choose Vehicle</h6>
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn mt-4">
+            Send Enquiry
+          </button>
 
-  <div class="mb-3 p-2 rounded bg-light d-flex justify-content-between">
-  <strong>Distance</strong>
-  <span class="fw-bold text-primary"><span id="distanceLabel">0</span> KM</span>
-  </div>
-
-  <label class="small">Passengers</label>
-  <input type="number" id="pax" min="1" class="form-control mb-3">
-
-  <div id="vehicleList" class="d-grid gap-2"></div>
-
-  <div class="d-flex justify-content-between mt-3">
-  <button class="btn btn-secondary" onclick="goStep(1)">Back</button>
-  <button class="btn btn-primary" onclick="validateStep2()">Continue</button>
-  </div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div class="step" id="step3">
-  <h6 class="fw-bold mb-3">Customer Details</h6>
-
-  <div class="row g-3">
-  <div class="col-md-6">
-  <label class="small">Name</label>
-  <input id="custName" class="form-control">
-  </div>
-  <div class="col-md-6">
-  <label class="small">Phone</label>
-  <input id="custPhone" class="form-control"
-         inputmode="numeric"
-         oninput="this.value=this.value.replace(/[^0-9]/g,'')">
-  </div>
-  </div>
-
-  <div class="mt-3 d-flex align-items-center gap-3">
-  <strong class="small">Accommodation:</strong>
-  <button class="btn btn-outline-secondary btn-sm" onclick="setAcc('No')">No</button>
-  <button class="btn btn-outline-success btn-sm" onclick="setAcc('Yes')">Yes</button>
-  <span id="accVal" class="fw-semibold small">No</span>
-  </div>
-
-  <p class="note mt-3">
-  • KM & Time calculated from office to office<br>
-  • Tolls, Parkings, Permits, Hill charges are extra <br>
-  • Night allowance applicable (9 PM – 6 AM)<br>
-  • Extra KM & days charged as per vehicle tariff
-  </p>
-
-  <div class="d-flex justify-content-between mt-3">
-  <button class="btn btn-secondary" onclick="goStep(2)">Back</button>
-  <button class="btn btn-success px-4" onclick="sendWA()">Enquire Now</button>
-  </div>
-  </div>
-
-  </div>
-  </div>
-  </div>
-  </div>
+        </form>
+      </div>
+    </div>
   </section>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3_umWiJ33K2cFXAvq24e3q5m1_ZUBEHQ&libraries=places"></script>
-
-  <script>
-  const OFFICE_LOCATION="Coimbatore, Tamil Nadu, India";
-  let selectedVehicle=null, finalKm=0, finalPrice=0, acc="No";
-
-  const vehicles=[
-  {v:'sedan',n:'Sedan',seat:'Swift, Etios – 4+1',d:2000,k:10,icon:'fa-car'},
-  {v:'mpv',n:'MPV',seat:'Ertiga, Xylo, Innova – 6+1',d:2500,k:15,icon:'fa-car-side'},
-  {v:'crysta',n:'Innova Crysta',seat:'7+1',d:3200,k:15,icon:'fa-car'},
-
-  {v:'tt12na',n:'Tempo Traveller Non-AC',seat:'12–14',d:3500,k:20,icon:'fa-bus'},
-  {v:'tt12ac',n:'Tempo Traveller AC',seat:'12–14',d:4000,k:20,icon:'fa-bus'},
-
-  {v:'tt18na',n:'Tempo Traveller Non-AC',seat:'16–18',d:4500,k:22,icon:'fa-bus'},
-  {v:'tt18ac',n:'Tempo Traveller AC',seat:'16–18',d:5000,k:22,icon:'fa-bus'},
-
-  {v:'urbania12',n:'Urbania AC',seat:'12 Seater',d:6500,k:28,icon:'fa-van-shuttle'},
-  {v:'urbania16',n:'Urbania AC',seat:'16 Seater',d:7500,k:28,icon:'fa-van-shuttle'}
-  ];
-
-  function scrollToTop(){
-  window.scrollTo({top:document.querySelector('.card-box').offsetTop-20,behavior:'instant'});
-  }
-
-  function goStep(n){
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('step'+n).classList.add('active');
-  setTimeout(scrollToTop,50);
-  }
-
-  function validateStep1(){
-  if(!pickup.value||!drop.value||!pickupDT.value||!dropDT.value){
-  alert("Please fill pickup, drop and dates");
-  return;
-  }
-  calculateDistance();
-  goStep(2);
-  }
-
-  function validateStep2(){
-  const p=parseInt(pax.value,10);
-  if(!p||p<1){
-  alert("Please enter passenger count");
-  pax.focus();return;
-  }
-  if(!selectedVehicle){
-  alert("Please select a vehicle");
-  return;
-  }
-  goStep(3);
-  }
-
-  function initAuto(){
-  ['pickup','drop'].forEach(id=>{
-  new google.maps.places.Autocomplete(document.getElementById(id),{componentRestrictions:{country:'in'}});
-  });
-  }
-  initAuto();
-
-  function addStop(){
-  const i=document.createElement('input');
-  i.className='form-control mb-2';
-  i.placeholder='Intermediate Stop';
-  stops.appendChild(i);
-  new google.maps.places.Autocomplete(i,{componentRestrictions:{country:'in'}});
-  }
-
-  function calcDays(){
-  if(!pickupDT.value||!dropDT.value) return 1;
-  const s=new Date(pickupDT.value);
-  const e=new Date(dropDT.value);
-  const sd=new Date(s.getFullYear(),s.getMonth(),s.getDate());
-  const ed=new Date(e.getFullYear(),e.getMonth(),e.getDate());
-  return Math.max(1,Math.round((ed-sd)/(1000*60*60*24))+1);
-  }
-
-  function calculateDistance(){
-  const route=[pickup.value,...[...stops.children].map(i=>i.value),drop.value];
-  const ds=new google.maps.DirectionsService();
-
-  ds.route({
-  origin:route[0],
-  destination:route[route.length-1],
-  waypoints:route.slice(1,-1).map(l=>({location:l,stopover:true})),
-  travelMode:'DRIVING'
-  },res=>{
-  let km=0;
-  res.routes[0].legs.forEach(l=>km+=l.distance.value);
-  km/=1000;
-
-  ds.route({
-  origin:route[route.length-1],
-  destination:OFFICE_LOCATION,
-  travelMode:'DRIVING'
-  },ret=>{
-  ret.routes[0].legs.forEach(l=>km+=l.distance.value/1000);
-  finalKm=Math.round(km+(calcDays()*30));
-  renderVehicles();
-  });
-  });
-  }
-
-  function renderVehicles(){
-  distanceLabel.innerText=finalKm;
-  vehicleList.innerHTML='';
-  const days=calcDays();
-  vehicles.forEach(v=>{
-  const price=Math.round((days*v.d)+(finalKm*v.k));
-  vehicleList.innerHTML+=`
-  <div class="vehicle-item" onclick="selectVehicle('${v.v}',${price},this)">
-  <div class="vehicle-left">
-  <i class="fa ${v.icon} vehicle-icon"></i>
-  <div>
-  <div class="vehicle-name">${v.n}</div>
-  <div class="vehicle-seat">${v.seat}</div>
-  </div>
-  </div>
-  <div class="vehicle-price">₹ ${price.toLocaleString()}</div>
-  </div>`;
-  });
-  }
-
-  function selectVehicle(v,price,el){
-  selectedVehicle=v;
-  finalPrice=price;
-  document.querySelectorAll('.vehicle-item').forEach(x=>x.classList.remove('active'));
-  el.classList.add('active');
-  }
-
-  function setAcc(v){acc=v;accVal.innerText=v;}
-
-  function format12(dt){
-  const d=new Date(dt);
-  let h=d.getHours(),m=d.getMinutes().toString().padStart(2,'0');
-  const ap=h>=12?'PM':'AM';h=h%12||12;
-  return `${d.toLocaleDateString('en-IN')} ${h}:${m} ${ap}`;
-  }
-  function sendWA(){
-
-    if(!custName.value.trim()){
-      alert("Enter name");
-      custName.focus();
-      return;
-    }
-
-    if(!custPhone.value || custPhone.value.length < 8){
-      alert("Enter valid phone number");
-      custPhone.focus();
-      return;
-    }
-
-    const v = vehicles.find(x => x.v === selectedVehicle);
-
-    const msg =
-  `*TOUR FARE ENQUIRY*
-
-  *Customer Details*
-  Name: ${custName.value}
-  Phone: ${custPhone.value}
-
-  *Trip Details*
-  Passengers: ${pax.value}
-  Vehicle: ${v.n} (${v.seat})
-  Pickup: ${pickup.value}
-  Drop: ${drop.value}
-  Pickup Time: ${format12(pickupDT.value)}
-  Drop Time: ${format12(dropDT.value)}
-  Accommodation: ${acc}
-
-  *Tariff & KM Details*
-  KM Limit: ${finalKm} KM
-  Estimated Fare: ₹ ${finalPrice.toLocaleString()}
-
-  Kindly confirm the best final price for this trip.`;
-
-    window.open(
-      `https://wa.me/919488840240?text=${encodeURIComponent(msg)}`,
-      '_blank'
-    );
-  }
-
-  // Disable past dates
-  const now=new Date().toISOString().slice(0,16);
-  pickupDT.min=now;
-  dropDT.min=now;
-  </script>
-
-
-
-
-
 
   <!-- ======================= HERO ============================ -->
   <section class="hero">
@@ -816,71 +708,281 @@
     </div>
   </section>
 
-  </main>
+</main>
 
-  <!-- ======================= FOOTER ============================ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row gy-3 align-items-center">
+<!-- ======================= FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-3 align-items-center">
 
-        <div class="col-md-6">
-          <strong>SOT Travels</strong><br>
-          Tour Operator in Coimbatore – Taxi & Tour Services
-        </div>
-
-        <div class="col-md-6 text-md-end">
-          📍 Coimbatore, Tamil Nadu<br>
-          📞 <a href="tel:+919488840240">+91 94888 40240</a><br>
-          ✉️ sottravelscoimbatore@gmail.com
-        </div>
-
+      <div class="col-md-6">
+        <strong>SOT Travels</strong><br>
+        Tour Operator in Coimbatore – Taxi & Tour Services
       </div>
+
+      <div class="col-md-6 text-md-end">
+        📍 Coimbatore, Tamil Nadu<br>
+        📞 <a href="tel:+919488840240">+91 94888 40240</a><br>
+        ✉️ sottravelscoimbatore@gmail.com
+      </div>
+
     </div>
-  </footer>
-  <br><br>
-  <!-- ======================= FLOATING CALL & WHATSAPP CTA ============================ -->
-  <div class="float-cta">
-
-    <!-- CALL -->
-    <a href="tel:+919488840240" class="cta-btn cta-call">
-      <span class="cta-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M3.654 1.328a.678.678 0 0 1 .748-.068l2.522 1.26c.2.1.326.306.326.53v2.383a.678.678 0 0 1-.2.48L5.48 7.78a11.72 11.72 0 0 0 4.74 4.74l1.867-1.57a.678.678 0 0 1 .48-.2h2.383c.224 0 .43.126.53.326l1.26 2.522a.678.678 0 0 1-.068.748c-.636.77-1.574 1.676-2.64 1.676C8.99 15 1 7.01 1 2.642c0-1.066.906-2.004 1.676-2.64z"/>
-        </svg>
-      </span>
-      <span class="cta-text">Call</span>
-    </a>
-
-    <!-- WHATSAPP -->
-    <a href="https://wa.me/919488840240?text=Hi%20SOT%20Travels"
-       target="_blank"
-       class="cta-btn cta-wa">
-      <span class="cta-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 8.004 0C3.584 0 0 3.584 0 8.004c0 1.41.37 2.789 1.067 4.016L0 16l4.064-1.06a7.964 7.964 0 0 0 3.94 1.028h.001c4.42 0 8.004-3.584 8.004-8.004a7.953 7.953 0 0 0-2.408-5.638zM8.004 14.518a6.48 6.48 0 0 1-3.302-.898l-.24-.144-2.409.63.644-2.35-.157-.241A6.52 6.52 0 1 1 8.004 14.52zm3.73-4.87c-.204-.102-1.204-.593-1.39-.66-.187-.067-.323-.102-.458.102-.136.204-.525.66-.645.796-.119.136-.237.153-.44.051-.204-.102-.858-.316-1.634-1.008-.603-.536-1.01-1.198-1.13-1.403-.119-.204-.013-.314.09-.416.092-.092.204-.237.306-.356.102-.119.136-.204.204-.34.068-.136.034-.255-.017-.356-.051-.102-.458-1.102-.627-1.507-.165-.398-.334-.344-.458-.344l-.39-.007c-.136 0-.356.051-.542.255-.187.204-.713.695-.713 1.695 0 .998.73 1.964.83 2.1.102.136 1.438 2.194 3.487 3.077.487.21.867.335 1.163.429.488.155.932.133 1.283.081.392-.058 1.204-.491 1.374-.965.17-.474.17-.88.119-.965-.051-.085-.187-.136-.39-.237z"/>
-        </svg>
-      </span>
-      <span class="cta-text">WhatsApp</span>
-    </a>
-
   </div>
+</footer>
+<br><br>
+<!-- ======================= FLOATING CALL & WHATSAPP CTA ============================ -->
+<div class="float-cta">
 
-  <!-- ======================= SCRIPTS ============================ -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
+  <!-- CALL -->
+  <a href="tel:+919488840240" class="cta-btn cta-call">
+    <span class="cta-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M3.654 1.328a.678.678 0 0 1 .748-.068l2.522 1.26c.2.1.326.306.326.53v2.383a.678.678 0 0 1-.2.48L5.48 7.78a11.72 11.72 0 0 0 4.74 4.74l1.867-1.57a.678.678 0 0 1 .48-.2h2.383c.224 0 .43.126.53.326l1.26 2.522a.678.678 0 0 1-.068.748c-.636.77-1.574 1.676-2.64 1.676C8.99 15 1 7.01 1 2.642c0-1.066.906-2.004 1.676-2.64z"/>
+      </svg>
+    </span>
+    <span class="cta-text">Call</span>
+  </a>
 
-  <script>
-    window.addEventListener("load", () => {
-      gsap.to(".main-content", {
-        opacity: 1,
-        duration: 0.6,
-        ease: "power2.out"
-      });
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/919488840240?text=Hi%20SOT%20Travels"
+     target="_blank"
+     class="cta-btn cta-wa">
+    <span class="cta-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 8.004 0C3.584 0 0 3.584 0 8.004c0 1.41.37 2.789 1.067 4.016L0 16l4.064-1.06a7.964 7.964 0 0 0 3.94 1.028h.001c4.42 0 8.004-3.584 8.004-8.004a7.953 7.953 0 0 0-2.408-5.638zM8.004 14.518a6.48 6.48 0 0 1-3.302-.898l-.24-.144-2.409.63.644-2.35-.157-.241A6.52 6.52 0 1 1 8.004 14.52zm3.73-4.87c-.204-.102-1.204-.593-1.39-.66-.187-.067-.323-.102-.458.102-.136.204-.525.66-.645.796-.119.136-.237.153-.44.051-.204-.102-.858-.316-1.634-1.008-.603-.536-1.01-1.198-1.13-1.403-.119-.204-.013-.314.09-.416.092-.092.204-.237.306-.356.102-.119.136-.204.204-.34.068-.136.034-.255-.017-.356-.051-.102-.458-1.102-.627-1.507-.165-.398-.334-.344-.458-.344l-.39-.007c-.136 0-.356.051-.542.255-.187.204-.713.695-.713 1.695 0 .998.73 1.964.83 2.1.102.136 1.438 2.194 3.487 3.077.487.21.867.335 1.163.429.488.155.932.133 1.283.081.392-.058 1.204-.491 1.374-.965.17-.474.17-.88.119-.965-.051-.085-.187-.136-.39-.237z"/>
+      </svg>
+    </span>
+    <span class="cta-text">WhatsApp</span>
+  </a>
+
+</div>
+
+<!-- ======================= SCRIPTS ============================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3_umWiJ33K2cFXAvq24e3q5m1_ZUBEHQ&libraries=places"></script>
+
+<!-- Enquiry Form Script -->
+<script>
+  let accommodation = 'No';
+  let stopCount = 0;
+
+  // Initialize Google Places Autocomplete
+  function initAutocomplete() {
+    const options = { componentRestrictions: { country: 'in' } };
+
+    new google.maps.places.Autocomplete(document.getElementById('pickup'), options);
+    new google.maps.places.Autocomplete(document.getElementById('drop'), options);
+  }
+
+  // Set minimum date/time to now
+  function setMinDateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    const minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+    document.getElementById('pickupDT').min = minDateTime;
+    document.getElementById('dropDT').min = minDateTime;
+  }
+
+  // Update drop date minimum based on pickup date
+  document.getElementById('pickupDT').addEventListener('change', function() {
+    const pickupValue = this.value;
+    if (pickupValue) {
+      document.getElementById('dropDT').min = pickupValue;
+
+      // If drop date is before pickup date, clear it
+      const dropValue = document.getElementById('dropDT').value;
+      if (dropValue && dropValue < pickupValue) {
+        document.getElementById('dropDT').value = '';
+      }
+    }
+  });
+
+  // Add intermediate stop
+  function addStop() {
+    stopCount++;
+    const stopDiv = document.createElement('div');
+    stopDiv.className = 'stop-input-wrapper';
+    stopDiv.id = `stop-${stopCount}`;
+
+    stopDiv.innerHTML = `
+      <input
+        type="text"
+        class="form-control stop-input"
+        placeholder="Intermediate stop ${stopCount}"
+        id="stopInput-${stopCount}">
+      <button type="button" class="remove-stop" onclick="removeStop(${stopCount})">×</button>
+    `;
+
+    document.getElementById('stopsContainer').appendChild(stopDiv);
+
+    // Add autocomplete to new input
+    new google.maps.places.Autocomplete(
+      document.getElementById(`stopInput-${stopCount}`),
+      { componentRestrictions: { country: 'in' } }
+    );
+  }
+
+  // Remove intermediate stop
+  function removeStop(id) {
+    const stopDiv = document.getElementById(`stop-${id}`);
+    if (stopDiv) {
+      stopDiv.remove();
+    }
+  }
+
+  // Set accommodation
+  function setAccommodation(value) {
+    accommodation = value;
+    document.getElementById('accValue').textContent = value;
+
+    // Update button states
+    document.getElementById('btnNo').classList.remove('active');
+    document.getElementById('btnYes').classList.remove('active');
+
+    if (value === 'Yes') {
+      document.getElementById('btnYes').classList.add('active');
+    } else {
+      document.getElementById('btnNo').classList.add('active');
+    }
+  }
+
+  // Format date for WhatsApp message
+  function formatDateTime(dateTimeStr) {
+    const dt = new Date(dateTimeStr);
+    const dateStr = dt.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
     });
-  </script>
 
-  </body>
-  </html>
+    let hours = dt.getHours();
+    const minutes = String(dt.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
 
+    return `${dateStr} at ${hours}:${minutes} ${ampm}`;
+  }
+
+  // Validate phone number
+  function validatePhone(phone) {
+    const cleaned = phone.replace(/\D/g, '');
+    return cleaned.length === 10 && /^[6-9]/.test(cleaned);
+  }
+
+  // Get all intermediate stops
+  function getIntermediateStops() {
+    const stops = [];
+    document.querySelectorAll('.stop-input').forEach(input => {
+      if (input.value.trim()) {
+        stops.push(input.value.trim());
+      }
+    });
+    return stops;
+  }
+
+  // Handle form submission
+  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const pickup = document.getElementById('pickup').value.trim();
+    const drop = document.getElementById('drop').value.trim();
+    const pickupDT = document.getElementById('pickupDT').value;
+    const dropDT = document.getElementById('dropDT').value;
+    const intermediateStops = getIntermediateStops();
+
+    // Validation
+    if (!name) {
+      alert('Please enter your name');
+      document.getElementById('custName').focus();
+      return;
+    }
+
+    if (!validatePhone(phone)) {
+      alert('Please enter a valid 10-digit phone number');
+      document.getElementById('custPhone').focus();
+      return;
+    }
+
+    if (!pickup) {
+      alert('Please enter pickup location');
+      document.getElementById('pickup').focus();
+      return;
+    }
+
+    if (!drop) {
+      alert('Please enter drop location');
+      document.getElementById('drop').focus();
+      return;
+    }
+
+    if (!pickupDT) {
+      alert('Please select pickup date and time');
+      document.getElementById('pickupDT').focus();
+      return;
+    }
+
+    if (!dropDT) {
+      alert('Please select drop date and time');
+      document.getElementById('dropDT').focus();
+      return;
+    }
+
+    // Build WhatsApp message
+    let message = `*TOUR ENQUIRY*\n\n`;
+    message += `*Customer Details*\n`;
+    message += `Name: ${name}\n`;
+    message += `Phone: ${phone}\n\n`;
+    message += `*Trip Details*\n`;
+    message += `Pickup: ${pickup}\n`;
+
+    if (intermediateStops.length > 0) {
+      message += `Stops: ${intermediateStops.join(' → ')}\n`;
+    }
+
+    message += `Drop: ${drop}\n`;
+    message += `Pickup: ${formatDateTime(pickupDT)}\n`;
+    message += `Drop: ${formatDateTime(dropDT)}\n`;
+    message += `Accommodation: ${accommodation}\n\n`;
+    message += `Please share the best quote for this trip. Thank you!`;
+
+    // Open WhatsApp
+    const whatsappUrl = `https://wa.me/919488840240?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  });
+
+  // Only allow numbers in phone input
+  document.getElementById('custPhone').addEventListener('input', function(e) {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+
+  // Initialize on page load
+  window.addEventListener('load', function() {
+    setMinDateTime();
+    initAutocomplete();
+    setAccommodation('No'); // Set default
+
+    // Fade in main content
+    gsap.to(".main-content", {
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out"
+    });
+  });
+</script>
+
+</body>
+</html>
