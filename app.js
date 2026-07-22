@@ -137,12 +137,12 @@
   });
 
   const vehicles = [
-    {rank:4.01,name:'Hyundai Aura',group:'Sedan',seats:'4 Seater',preference:'Sedan – 4 Seater',passengers:4,image:'aura1.webp',text:'Economical for city rides, airport transfers and short outstation trips.'},
+    {rank:4.01,name:'Hyundai Aura',group:'Sedan',seats:'4 Seater',preference:'Sedan – 4 Seater',passengers:4,image:'aura1.',text:'Economical for city rides, airport transfers and short outstation trips.'},
     {rank:4.02,name:'Maruti Ciaz',group:'Sedan',seats:'4 Seater',preference:'Sedan – 4 Seater',passengers:4,image:'ciaz1.webp',text:'Spacious sedan for executive travel and comfortable highway journeys.'},
     {rank:4.03,name:'Swift Dzire',group:'Sedan',seats:'4 Seater',preference:'Sedan – 4 Seater',passengers:4,image:'dzire1.webp',text:'A practical choice for couples, small families and regular transfers.'},
     {rank:4.04,name:'Toyota Etios',group:'Sedan',seats:'4 Seater',preference:'Sedan – 4 Seater',passengers:4,image:'etios1.webp',text:'Comfortable sedan with useful luggage space for longer road travel.'},
     {rank:6,name:'Maruti Ertiga',group:'MPV',seats:'6 Seater',preference:'Ertiga – 6 Seater',passengers:6,image:'ertiga1.webp',text:'Family-friendly MPV for small groups and flexible outstation travel.'},
-    {rank:7.01,name:'Toyota Innova',group:'MPV',seats:'7 Seater',preference:'Toyota Innova – 7 Seater',passengers:7,image:'innova1.webp',text:'Reliable group comfort for family trips, business travel and tours.'},
+    {rank:7.01,name:'Toyota Innova',group:'MPV',seats:'7 Seater',preference:'Toyota Innova – 7 Seater',passengers:7,image:'innovo1.webp',text:'Reliable group comfort for family trips, business travel and tours.'},
     {rank:7.02,name:'Innova Crysta',group:'Premium MPV',seats:'7 Seater',preference:'Innova Crysta – 7 Seater',passengers:7,image:'crysta1.webp',text:'Premium comfort for longer tours, special guests and family holidays.'},
     {rank:7.03,name:'Innova Hycross',group:'Premium MPV',seats:'7 Seater',preference:'Toyota Hycross – 7 Seater',passengers:7,image:'hycross1.webp',text:'Refined MPV option for comfortable local and long-distance journeys.'},
     {rank:12.01,name:'Force Traveller',group:'Traveller',seats:'12 Seater',preference:'Force Traveller – 12 to 14 Seater',passengers:12,image:'TT1.webp',text:'Suitable for families, pilgrimages, functions and group holidays.'},
