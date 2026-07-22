@@ -1,0 +1,18 @@
+SOT TRAVELS — VEHICLE FORM OPTIONS
+
+Every enquiry form now uses these same options:
+
+1. Sedan – 4 Seater
+2. Ertiga – 6 Seater
+3. Toyota Innova – 7 Seater
+4. Innova Crysta – 7 Seater
+5. Toyota Hycross – 7 Seater
+6. Force Traveller – 12 to 14 Seater
+7. Force Traveller – 15 to 18 Seater
+8. Urbania – 12 Seater
+9. Urbania – 16 Seater
+10. Coach – 21 Seater
+11. Bus
+
+The option “Recommend a vehicle” remains available.
+The same labels are used in the review popup and WhatsApp message.
